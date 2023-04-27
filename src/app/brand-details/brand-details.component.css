@@ -1,0 +1,10 @@
+img {
+    border: 1px solid var(--main-color);
+}
+
+
+@media screen and (max-width:768px) {
+    h2 {
+        margin: 12px 0px;
+    }
+}

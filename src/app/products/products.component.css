@@ -1,0 +1,17 @@
+.categoryName {
+    padding: 6px 0px;
+    color: var(--main-color);
+    font-weight: 600;
+    margin-top: 6px;
+    margin-bottom: 0px !important;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.productName {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.plusIcon {
+    font-size: 28px;
+}

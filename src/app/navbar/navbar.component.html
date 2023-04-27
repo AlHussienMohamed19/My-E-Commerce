@@ -1,0 +1,101 @@
+<nav class="navbar myNavbar navbar-expand-lg navbar-light bg-main-light fixed-top">
+    <div class="container">
+        <a class="navbar-brand" routerLink="/home">
+            <img src="../../assets/images/freshcart-logo.svg" class="w-100" alt="">
+        </a>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul *ngIf="isLogin" class="navbar-nav me-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/home" routerLinkActive="myActive">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/cart" routerLinkActive="myActive">Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/products" routerLinkActive="myActive">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/categories" routerLinkActive="myActive">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/brands" routerLinkActive="myActive">Brands</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav social-media ms-auto mt-2 mt-lg-0">
+                <li class="nav-item social-media-li d-flex align-items-center">
+                    <i class="fa-brands fa-instagram mx-2 cursor-pointer" data-toggle="tooltip" data-placement="bottom"
+                        title="Instagram"></i>
+                    <i class="fa-brands fa-facebook mx-2 cursor-pointer" data-toggle="tooltip" data-placement="bottom"
+                        title="Facebook"></i>
+                    <i class="fa-brands fa-tiktok mx-2 cursor-pointer" data-toggle="tooltip" data-placement="bottom"
+                        title="Tiktok"></i>
+                    <i class="fa-brands fa-twitter mx-2 cursor-pointer" data-toggle="tooltip" data-placement="bottom"
+                        title="Twitter"></i>
+                    <i class="fa-brands fa-linkedin mx-2 cursor-pointer" data-toggle="tooltip" data-placement="bottom"
+                        title="Linkedin"></i>
+                    <i class="fa-brands fa-youtube mx-2 cursor-pointer" data-toggle="tooltip" data-placement="bottom"
+                        title="Youtube"></i>
+                </li>
+                
+
+                <a *ngIf="isLogin" class="ms-3 cartIcon" routerLink="/cart">
+                    <button type="button" class="btn cartBtn position-relative">
+                        <i class="fa-solid fa-shopping-cart"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            {{itemNo}}
+                        </span>
+                    </button>
+                </a>
+
+                <li class="nav-item dropdown px-4">
+                    <a class="nav-link dropDownBtn dropdown-toggle d-flex justify-content-center align-items-center" href="#"
+                        id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-user"></i>
+                        <p *ngIf="isLogin" class="my-0 ms-2">{{userName}}</p>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li *ngIf="isLogin">
+                            <a class="dropdown-item d-flex align-items-center" routerLink="/wishlist">
+                                <i class="fa-solid fa-heart mx-2"></i>
+                                <p class="my-0">Wishlist</p>
+                            </a>
+                        </li>
+
+                        <li *ngIf="isLogin">
+                            <a class="dropdown-item d-flex align-items-center" routerLink="" routerLinkActive=""
+                                (click)="logout()">
+                                <i class="fa-solid fa-arrow-right-from-bracket mx-2"></i>
+                                <p class="my-0">Logout</p>
+                            </a>
+                        </li>
+
+                        <li *ngIf="!isLogin">
+                            <a class="dropdown-item d-flex align-items-center" routerLink="/login"
+                                routerLinkActive="myActive">
+                                <i class="fa-solid fa-right-to-bracket mx-2"></i>
+                                <p class="my-0">Login</p>
+                            </a>
+                        </li>
+
+                        <li *ngIf="!isLogin">
+                            <a class="dropdown-item d-flex align-items-center" routerLink="/register"
+                                routerLinkActive="myActive">
+                                <i class="fa-solid fa-registered mx-2"></i>
+                                <p class="my-0">Register</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+</nav>
+

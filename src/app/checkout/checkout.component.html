@@ -1,0 +1,47 @@
+<div class="w-100 mx-auto py-5">
+
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
+                type="button" role="tab" aria-controls="nav-home" aria-selected="true">Online Payment</button>
+            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+                type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Cash</button>
+        </div>
+    </nav>
+
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active py-4 w-75 mx-auto" id="nav-home" role="tabpanel"
+            aria-labelledby="nav-home-tab">
+            <form action="" [formGroup]="shippingAdress" (ngSubmit)="onlinePayment(shippingAdress)">
+
+                <label class="mt-3" for="details">details</label>
+                <input type="text" name="" formControlName="details" class="form-control mt-1" id="">
+
+                <label class="mt-3" for="phone">phone</label>
+                <input type="tel" name="" formControlName="phone" class="form-control mt-1" id="">
+
+                <label class="mt-3" for="city">city</label>
+                <input type="text" name="" formControlName="city" class="form-control mt-1" id="">
+
+                <button class="btn bg-main text-white mt-4" type="submit">Continue</button>
+            </form>
+        </div>
+
+        <div class="tab-pane fade py-4 w-75 mx-auto" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+            <form action="" [formGroup]="shippingAdress" (ngSubmit)="cashPayment(shippingAdress)">
+
+                <label class="mt-3" for="details">details</label>
+                <input type="text" name="" formControlName="details" class="form-control mt-1" id="">
+
+                <label class="mt-3" for="phone">phone</label>
+                <input type="tel" name="" formControlName="phone" class="form-control mt-1" id="">
+
+                <label class="mt-3" for="city">city</label>
+                <input type="text" name="" formControlName="city" class="form-control mt-1" id="">
+
+                <button class="btn bg-main text-white mt-4" type="submit">Continue</button>
+            </form>
+        </div>
+    </div>
+
+</div>

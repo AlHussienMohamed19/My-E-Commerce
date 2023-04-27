@@ -1,0 +1,49 @@
+
+<!-- <app-main-slider></app-main-slider> -->
+
+<app-categories-slider></app-categories-slider>
+
+<div class="row py-3 gy-4">
+    
+    
+
+    <div class="d-flex justify-content-between align-items-center mb-3 mt-4">
+        <h4 class="fw-bold mb-0">Our Products :</h4>
+        <a routerLink="/products" class="d-flex seeAllBtn justify-content-center align-items-center text-main">
+            <h6 class="m-0 fw-bold">see all</h6>
+            <i class="fa-solid fa-chevron-right ms-1"></i>
+        </a>
+    </div>
+
+    <div>
+        <input [(ngModel)]="productTitle" type="text" class="form-control w-75 me-auto" placeholder="Search By Name" name="" value="">
+    </div>
+
+    <div *ngFor="let product of products|search:productTitle" class="col-md-2">
+        <div class="product p-2">
+            <button class="btn likedBtn" (click)="addToWishList(product._id)">
+                <i class="fa-heart" [class]="isLiked?'fa-solid':'fa-regular'"></i>
+            </button>
+            
+            <a [routerLink]="['/productDetails',product?._id]">
+                <div class="p-2  overflow-hidden cursor-pointer">
+                    <img [src]="product?.imageCover" class="w-100" alt="">
+                    <h6 class="categoryName">{{product.category.name}}</h6>
+                    <h5 class="productName">{{product.title|productTitle:2}}</h5>
+                    <div class="py-2 d-flex justify-content-between align-items-center">
+                        <span class="fw-bold">{{product?.price}} EGP</span>
+                        <span><i class="fa-solid fa-star rating-color"></i> {{product?.ratingsAverage}}</span>
+                    </div>
+                    
+                </div>
+            </a>
+
+            <div class="d-flex justify-content-center align-items-center py-2">
+                <button (click)="addToCart(product._id)" class="btn addBtn bg-main text-white w-75 d-flex justify-content-center align-items-center">
+                    <span class="plusIcon">+</span>
+                    Add
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

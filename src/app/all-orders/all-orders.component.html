@@ -1,0 +1,24 @@
+<div class="bg-main-light p-4 my-5" *ngFor="let order of allOrders ; let i = index">
+
+    <div class="py-2">
+        <h4 class="mb-3">Order {{i+1}}</h4>
+        <h5 class="text-main">Total Price : <span class="fw-bold">{{order.totalOrderPrice}} EGP</span></h5>
+    </div>
+
+    <div class="row border-bottom my-4 py-2" *ngFor="let orderItem of order?.cartItems">
+        <div class="col-md-1">
+            <img [src]="orderItem.product?.imageCover" class="w-100" alt="">
+        </div>
+        <div class="col-md-11 d-flex justify-content-between align-items-center">
+            <div class="w-75">
+                <h5 class="fw-bold">{{orderItem.product?.title}}</h5>
+                <h6 class="text-main">Product Price : <span class="fw-bold">{{orderItem?.price}} EGP</span></h6>
+            </div>
+            <div>
+                <span class="p-2 fw-bold">{{orderItem?.count}}</span>
+            </div>
+        </div>
+    </div>
+
+
+</div>

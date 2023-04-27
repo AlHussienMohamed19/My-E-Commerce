@@ -1,0 +1,61 @@
+
+<div class="w-75 m-auto py-5">
+    <h2 class="mb-4">Register Now :</h2>
+
+    <div *ngIf="errorMessage" class="alert alert-danger">
+        {{errorMessage}}
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="regiserUser(registerForm)">
+
+        <label for="name" class="text-capitalize my-1">name :</label>
+        <input formControlName="name" type="text" id="name" class="form-control mb-2">
+        
+        <div *ngIf="registerForm.get('name')?.errors && registerForm.get('name')?.touched" class="alert alert-danger">
+            <p *ngIf="registerForm.get('name')?.getError('minlength')" class="m-0">Name min. length is 3</p>
+            <p *ngIf="registerForm.get('name')?.getError('maxlength')" class="m-0">Name max. length is 15</p>
+            <p *ngIf="registerForm.get('name')?.getError('required')" class="m-0">Name is required</p>
+        </div>
+
+        <label for="email" class="text-capitalize my-1">email :</label>
+        <input formControlName="email" type="text" id="email" class="form-control mb-2">
+
+        <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched" class="alert alert-danger">
+            <p *ngIf="registerForm.get('email')?.getError('email')" class="m-0">Email is invalid</p>
+            <p *ngIf="registerForm.get('email')?.getError('required')" class="m-0">Email is required</p>
+        </div>
+
+        <label for="password" class="text-capitalize my-1">password :</label>
+        <input formControlName="password" type="password" id="password" class="form-control mb-2">
+
+        <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched" class="alert alert-danger">
+            <p *ngIf="registerForm.get('password')?.getError('pattern')" class="m-0">Password must start with a Capital letter then (small letter Or number) 5-10 times</p>
+            <p *ngIf="registerForm.get('password')?.getError('required')" class="m-0">password is required</p>
+        </div>
+
+        <label for="rePassword" class="text-capitalize my-1">rePassword :</label>
+        <input formControlName="rePassword" type="password" id="rePassword" class="form-control mb-2">
+
+        <div *ngIf="registerForm.get('rePassword')?.errors && registerForm.get('rePassword')?.touched" class="alert alert-danger">
+            <p *ngIf="registerForm.get('rePassword')?.getError('pattern')" class="m-0">RePassword must start with a Capital letter then (small letter Or number) 5-10 times</p>
+            <p *ngIf="registerForm.get('rePassword')?.getError('match')" class="m-0">rePassword doesn't match with password</p>
+            <p *ngIf="registerForm.get('rePassword')?.getError('required')" class="m-0">rePassword is required</p>
+        </div>
+
+        <label for="phone" class="text-capitalize my-1">phone :</label>
+        <input formControlName="phone" type="tel" id="phone" class="form-control mb-2">
+
+        <div *ngIf="registerForm.get('phone')?.errors && registerForm.get('phone')?.touched" class="alert alert-danger">
+            <p *ngIf="registerForm.get('phone')?.getError('pattern')" class="m-0">Phone number must be an egyption number</p>
+            <p *ngIf="registerForm.get('phone')?.getError('required')" class="m-0">phone is required</p>
+        </div>
+
+        <div>
+            <button [disabled]="registerForm.invalid" type="submit" class="btn bg-main my-2 text-white">
+                <i *ngIf="isLoading" class="fa-solid fa-spinner fa-spin"></i>
+                <span *ngIf="!isLoading">Register</span>
+            </button>
+
+        </div>
+    </form>
+</div>

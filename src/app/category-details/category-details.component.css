@@ -1,0 +1,13 @@
+
+
+@media screen and (max-width:768px) {
+    .row {
+        padding: 0px 16px;
+    }
+    img {
+        height: 300px !important;
+    }
+    h2 {
+        padding: 16px 0px !important;
+    }
+}

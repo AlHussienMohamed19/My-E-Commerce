@@ -1,0 +1,27 @@
+
+
+.categoryName {
+    padding: 6px 0px;
+    color: var(--main-color);
+    font-weight: 600;
+    margin-top: 6px;
+    margin-bottom: 0px !important;
+}
+
+.productName {
+    font-weight: 700;
+}
+
+.plusIcon {
+    font-size: 28px;
+    line-height: 16px;
+    padding-right: 4px;
+}
+
+.removeBtn:hover {
+    background-color: #e6e6e6;
+}
+
+.addBtn:hover {
+    background-color: #077607 !important;
+}
