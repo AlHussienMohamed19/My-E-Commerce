@@ -289,6 +289,9 @@ SOFTWARE.
 ngx-owl-carousel-o
 MIT
 
+ngx-pagination
+MIT
+
 ngx-toastr
 MIT
 The MIT License (MIT)
